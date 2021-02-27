@@ -50,7 +50,7 @@ Rest.prototype.random =function () {
   return generateRandomNumber(this.minc,this.maxc);
 };
 
-Rest.prototype.render = function () {
+Rest.prototype.render = function c () {
   const r2 = document.createElement('tr');
   table.appendChild(r2);
   const d3 = document.createElement('td');
@@ -92,5 +92,26 @@ Dubai.render();
 Paris.render();
 Lima.render();
 
-
 footer();
+
+const formElement = document.getElementById('newLocationFormm');
+const elForm=document.getElementById('newLocationForm');
+
+elForm.addEventListener('submit', addStore);
+
+function addStore(e){
+  event.preventDefault();
+  const newName = e.target.lName.value;
+  const newMin = e.target.min.value;
+  const newMax= e.target.max.value;
+  const newAvg= e.target.avgcookies.value;
+  console.log(newName,newMin,newMax,newAvg);
+  let newStore = new Location(newName,newMin,newMax,newAvg);
+  document.getElementById('Totals').remove();
+  newStore.getCus();
+  newStore.getcookie();
+  newStore.render();
+  this.a=[];
+  this.c();
+}
+formElement.addEventListener;
